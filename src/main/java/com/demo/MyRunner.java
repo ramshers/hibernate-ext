@@ -1,16 +1,23 @@
 package com.demo;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.demo.model.map_many2many.Delegate;
 import com.demo.model.map_many2many.Event;
 import com.demo.model.map_one2many.College;
+import com.demo.model.map_one2many.Student;
 import com.demo.model.map_one2one.Person;
 import com.demo.model.map_one2one.PersonDetails;
+import com.demo.repo.CollegeRepo;
 import com.demo.repo.DelegateRepo;
 import com.demo.repo.EventRepo;
 import com.demo.repo.PersonRepo;
+import com.demo.repo.StudentRepo;
 
 @Component
 public class MyRunner implements CommandLineRunner {
@@ -72,14 +79,41 @@ public class MyRunner implements CommandLineRunner {
         
   }
 
+  @Autowired 
+  CollegeRepo collegeRepo;
+  
+  @Autowired
+  StudentRepo studentRepo;
   
   @Override  //1+n problem
+  @Transactional
   public void run(String... args) throws Exception {
 	  
-	  College c1 = new College();
+	  /**
+	  College c = new College();  
+	  c.setCollegeName("college4");
+	  College cc1= collegeRepo.save(c);
+	  System.err.println("cc1.id: " + cc1.getCollegeId());
+	  */
 	  
-	  c1.setCollegeName("college1");
 	  
+	  /**
+	  Student s = new Student();
+	  s.setStudentName("student4");
+	  Optional<College> cdb2 = collegeRepo.findByCollegeId(2);
+	  s.setCollege(cdb2.get());
+	  studentRepo.save(s); 
+	  */
+	  
+	  System.err.println("1+n queries start" );
+	  
+	  //cdb1 - college from db
+	  Optional<College> cdb = collegeRepo.findByCollegeId(2);
+	  System.err.println("cdb.get().getCollegeId(): " + cdb.get().getCollegeId());
+	  System.err.println("cdb.get().getCollegeId(): " + cdb.get().getStudents());
 
+	  collegeRepo.findByCollegeIdJPQL().forEach(System.err::println);;
+	  
   }
+
 }
