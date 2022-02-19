@@ -99,7 +99,7 @@ public class MyRunner implements CommandLineRunner {
 	  
 	  /**
 	  Student s = new Student();
-	  s.setStudentName("student4");
+	  s.setStudentName("student6");
 	  Optional<College> cdb2 = collegeRepo.findByCollegeId(2);
 	  s.setCollege(cdb2.get());
 	  studentRepo.save(s); 
@@ -108,12 +108,20 @@ public class MyRunner implements CommandLineRunner {
 	  System.err.println("1+n queries start" );
 	  
 	  //cdb1 - college from db
-	  Optional<College> cdb = collegeRepo.findByCollegeId(2);
-	  System.err.println("cdb.get().getCollegeId(): " + cdb.get().getCollegeId());
-	  System.err.println("cdb.get().getCollegeId(): " + cdb.get().getStudents());
+	  //Optional<College> cdb = collegeRepo.findByCollegeId(2);
+	  //System.err.println("cdb.get().getCollegeId(): " + cdb.get().getCollegeId());
+	  //System.err.println("cdb.get().getCollegeId(): " + cdb.get().getStudents());
 
-	  collegeRepo.findByCollegeIdJPQL().forEach(System.err::println);;
+	  //collegeRepo.findByCollegeIdJPQL().forEach( c -> System.err.println("c s: " + c.getStudents() ) );
+	  //System.err.println("collegeRepo.findByCollegeIdJPQL().size(): " + collegeRepo.findByCollegeIdJPQL().size());
+	  //System.err.println("collegeRepo.findByCollegeIdJPQL(): " + collegeRepo.findByCollegeIdJPQL());
+
+	  //System.err.println("collegeRepo.findByCollegeIdsJPQL().size(): " + collegeRepo.findByCollegeIdsJPQL().size());
+
+	  //collegeRepo.findAllJPQL().forEach( c -> System.err.println("c s: " + c.getStudents() ) );
 	  
+	  collegeRepo.findAll().forEach( c -> System.err.println("c s: " + c.getStudents() ) );
+
   }
 
 }
