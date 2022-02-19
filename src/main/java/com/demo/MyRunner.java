@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import com.demo.model.map_many2many.Delegate;
 import com.demo.model.map_many2many.Event;
+import com.demo.model.map_one2many.College;
 import com.demo.model.map_one2one.Person;
 import com.demo.model.map_one2one.PersonDetails;
 import com.demo.repo.DelegateRepo;
@@ -23,8 +24,8 @@ public class MyRunner implements CommandLineRunner {
   @Autowired
   DelegateRepo dr;
 
-  @Override
-  public void run(String... args) throws Exception {
+  //@Override
+  public void run1(String... args) throws Exception {
 
     PersonDetails pd = new PersonDetails();
     pd.setPersonDetailsId(11);
@@ -68,7 +69,17 @@ public class MyRunner implements CommandLineRunner {
     er.save(e2);
 
     er.save(e1);
-    
+        
   }
 
+  
+  @Override  //1+n problem
+  public void run(String... args) throws Exception {
+	  
+	  College c1 = new College();
+	  
+	  c1.setCollegeName("college1");
+	  
+
+  }
 }
