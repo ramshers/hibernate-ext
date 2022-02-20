@@ -85,7 +85,7 @@ public class MyRunner implements CommandLineRunner {
   @Autowired
   StudentRepo studentRepo;
   
-  @Override  //1+n problem
+  @Override  //n+1 problem
   @Transactional
   public void run(String... args) throws Exception {
 	  
@@ -116,9 +116,9 @@ public class MyRunner implements CommandLineRunner {
 	  //System.err.println("collegeRepo.findByCollegeIdJPQL().size(): " + collegeRepo.findByCollegeIdJPQL().size());
 	  //System.err.println("collegeRepo.findByCollegeIdJPQL(): " + collegeRepo.findByCollegeIdJPQL());
 
-	  System.err.println("collegeRepo.findByCollegeIdsJPQL().size(): " + collegeRepo.findByCollegeIdsJPQL().size());
 	  //System.err.println("collegeRepo.findByCollegeIdsJPQL().size(): " + collegeRepo.findByCollegeIdsJPQL().size());
-	  collegeRepo.findByCollegeIdsJPQL().forEach( System.err::println );
+	  //System.err.println("collegeRepo.findByCollegeIdsJPQL().size(): " + collegeRepo.findByCollegeIdsJPQL().size());
+	  //collegeRepo.findByCollegeIdsJPQL().forEach( System.err::println );
 
 
 	  //collegeRepo.findAllJPQL().forEach( c -> System.err.println("c s: " + c.getStudents() ) );
