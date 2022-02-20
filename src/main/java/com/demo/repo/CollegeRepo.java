@@ -20,13 +20,13 @@ public interface CollegeRepo  extends JpaRepository<College, Integer>, JpaSpecif
 	public Optional<College> findByCollegeId(int collegeId);
 	
 	@Query("SELECT c FROM College c LEFT JOIN FETCH c.students where c.collegeId=2")
-	public College findByCollegeIdJPQ();	
+	public College findByCollegeIdJPQ();
 	
 	@Query("SELECT c FROM College c LEFT JOIN FETCH c.students where c.collegeId IN (2)")
 	public List<College> findByCollegeIdsJPQL();
 	
 	@Query("SELECT c FROM College c LEFT JOIN FETCH c.students")
-	public List<College> findAllJPQL();	
+	public List<College> findAllJPQL();
 	
  
 
