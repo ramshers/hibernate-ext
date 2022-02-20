@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.demo.model.map_one2many.Student;
 
-@Repository
+
 public interface StudentRepo  extends JpaRepository<Student, Integer>, JpaSpecificationExecutor<Student> {
 
 /**

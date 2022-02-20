@@ -117,13 +117,17 @@ public class MyRunner implements CommandLineRunner {
 	  //System.err.println("collegeRepo.findByCollegeIdJPQL(): " + collegeRepo.findByCollegeIdJPQL());
 
 	  //System.err.println("collegeRepo.findByCollegeIdsJPQL().size(): " + collegeRepo.findByCollegeIdsJPQL().size());
-	  //System.err.println("collegeRepo.findByCollegeIdsJPQL().size(): " + collegeRepo.findByCollegeIdsJPQL().size());
-	  //collegeRepo.findByCollegeIdsJPQL().forEach( System.err::println );
+	  System.err.println("collegeRepo.findByCollegeIdsJPQL().size(): " + collegeRepo.findByCollegeIdsJPQL().size());
+	  collegeRepo.findByCollegeIdsJPQL().forEach( System.err::println );
 
 
 	  //collegeRepo.findAllJPQL().forEach( c -> System.err.println("c s: " + c.getStudents() ) );
 	  
-	  //collegeRepo.findAll().forEach( c -> System.err.println("c s: " + c.getStudents() ) );
+	  //collegeRepo.findAll().forEach( c -> System.err.println("college wit students: " + c.getStudents() ) );
+	  
+	  //first level cache mainly works when getting an entity by ID using - test
+	  //System.err.println("collegeRepo.getById(2): " + collegeRepo.getById(2));
+	  //System.err.println("collegeRepo.getById(2): " + collegeRepo.getById(2));
 
   }
 
