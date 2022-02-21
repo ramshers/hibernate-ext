@@ -16,7 +16,7 @@ public class Student {
 	private String studentName;
 
 	@ManyToOne
-	@JoinColumn(name = "collegeId_fk")
+	@JoinColumn//(name = "collegeId_fk")
 	private College college;
 
 	public int getStudentId() {
