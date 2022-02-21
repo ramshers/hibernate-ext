@@ -2,6 +2,7 @@ package com.demo.repo;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.persistence.QueryHint;
 
@@ -30,7 +31,7 @@ public interface CollegeRepo  extends JpaRepository<College, Integer>, JpaSpecif
 	public List<College> findByCollegeIdsJPQL();
 	
 	@Query("SELECT c FROM College c LEFT JOIN FETCH c.students")
-	public List<College> findAllJPQL();
+	public Set<College> findAllJPQL();
 	
  
 

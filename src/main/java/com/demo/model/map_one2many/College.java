@@ -17,9 +17,7 @@ public class College {
 
 	private String collegeName;
 
-	// for 121 mapping fetch type is eager by default but for other mappings it
-	// defaults to lazy
-	@OneToMany(targetEntity = Student.class, mappedBy = "college", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(targetEntity = Student.class, mappedBy = "college") //, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Student> students;
 
 	public int getCollegeId() {
