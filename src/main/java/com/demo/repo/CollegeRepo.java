@@ -26,6 +26,7 @@ public interface CollegeRepo  extends JpaRepository<College, Integer>, JpaSpecif
 	@Query("SELECT c FROM College c LEFT JOIN FETCH c.students where c.collegeId=2")
 	public College findByCollegeIdJPQ();
 	
+	//will not work with hibernate 6.x
 	@Query("SELECT distinct c FROM College c LEFT JOIN FETCH c.students where c.collegeId IN (2)")
 	@QueryHints(@QueryHint(name = org.hibernate.jpa.QueryHints.HINT_PASS_DISTINCT_THROUGH, value = "false"))
 	public List<College> findByCollegeIdsJPQL();
